@@ -35,7 +35,7 @@ for status in @issue.tracker.issue_statuses
 		%><b>[<%= status.name %>]</b>&emsp;<%
 	else
 		%>[<%= link_to_if allowed_statuses.include?(status),
-						status.name, "javascript:make_status(#{status.id}, #{User.current.id})" %>]&emsp;<%
+						status.name, "javascript:make_status(#{status.id}, #{User.current.id}, #{issue.author.id})" %>]&emsp;<%
 	end
 	end
 %></div>

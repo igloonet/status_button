@@ -1,4 +1,4 @@
-function make_status(newStatus, userId) {
+function make_status(newStatus, userId, authorId) {
 	if (typeof(jQuery) != 'undefined') {
 		// redmine uses jQuery so use it.
 		var $ = jQuery;
@@ -15,6 +15,7 @@ function make_status(newStatus, userId) {
 		// FIXME: add option - not hardcoded
 		if ( newStatus == 3 || newStatus == 9 ) {
 			$("#issue_done_ratio option[value=100]").attr('selected', true)
+			$("#issue_assigned_to_id option[value=" + authorId + "]").attr('selected', true)
 		} else if ( newStatus == 2 && userId ) {
 			$("#issue_assigned_to_id option[value=" + userId + "]").attr('selected', true);
 		}
