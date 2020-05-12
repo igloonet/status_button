@@ -1,13 +1,13 @@
 <%
 	if StatusButton::Hooks.is_open?(@project)
 %>
-<tr><th class="status"><%= l(:field_status) + "-->" %></th><td class="status" colspan=3><%
+<tr><th class="status-buttons attribute"><%= l(:field_status) + "-->" %></th><td class="status-button" colspan=3><%
 # Returns an array of statuses that user is able to apply
 def all_new_statuses_allowed_to(issue)
 	user = User.current
 	old_statuses = []
 	statuses = [issue.status].compact
-	
+
 	# check all reachables status for all roles the user owns
 	while (old_statuses != statuses)
 		new_statuses = statuses - old_statuses

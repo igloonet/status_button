@@ -19,8 +19,14 @@ end
 
 module StatusButton
   class Hooks < Redmine::Hook::ViewListener
-    render_on :view_issues_show_details_bottom, :partial => 'issues/status_button'
-    
+    current_version = Gem::Version.new Redmine::VERSION.to_a.join '.'
+    target_version = Gem::Version.new '3.2.0'
+    if current_version > target_versions
+      render_on :view_issues_show_details_bottom, :partial => 'issues/div_status_button'
+    else
+      render_on :view_issues_show_details_bottom, :partial => 'issues/table_status_button'
+    end
+
     def self.is_open?(project)
       print('===========>',project,"\n")
       field = project.custom_field_values.find{ |f| f.custom_field.name == 'status_button_plugin' }
