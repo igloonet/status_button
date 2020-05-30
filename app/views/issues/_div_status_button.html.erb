@@ -1,7 +1,7 @@
 <%
   if StatusButton::Hooks.is_open?(@project)
 %>
-<div class="status-buttons attribute"><div class="label"><%= l(:field_status) + "-->" %></div><%
+<div class="status-buttons attribute"><div class="label"><%= l(:label_issue_status_new) %>:</div><%
 # Returns an array of statuses that user is able to apply
 def all_new_statuses_allowed_to(issue)
   user = User.current
