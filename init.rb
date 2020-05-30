@@ -21,7 +21,7 @@ module StatusButton
   class Hooks < Redmine::Hook::ViewListener
     current_version = Gem::Version.new Redmine::VERSION.to_a.join '.'
     target_version = Gem::Version.new '3.2.0'
-    if current_version > target_versions
+    if current_version > target_version
       render_on :view_issues_show_details_bottom, :partial => 'issues/div_status_button'
     else
       render_on :view_issues_show_details_bottom, :partial => 'issues/table_status_button'
