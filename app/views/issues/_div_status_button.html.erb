@@ -31,8 +31,12 @@ for status in @issue.tracker.issue_statuses
   if @issue.status == status
     %><a class="status-button-active"><%= status.name %></a><%
   else
-    link = allowed_statuses.include?(status) ? nil : "javascript:make_status(#{status.id})"
-    %><%= link_to status.name, link %><%
+    if setting[:display_only_allowed]
+      %><%= link_to status.name, "javascript:make_status(#{status.id})" if allowed_statuses.include?(status) %><%
+    else
+      link = allowed_statuses.include?(status) ? nil : "javascript:make_status(#{status.id})"
+      %><%= link_to status.name, link %><%
+    end
   end
 end
 %>

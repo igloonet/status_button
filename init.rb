@@ -13,7 +13,8 @@ Redmine::Plugin.register :status_button do
   settings :default => {
     :status_assigned_to              => {},
     :check_all_status                => false,
-    :add_watcher                     => true
+    :add_watcher                     => true,
+    :display_only_allowed            => false
   }, :partial => 'settings/status_button_settings'
 end
 

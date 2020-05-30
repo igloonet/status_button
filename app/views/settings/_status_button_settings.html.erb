@@ -12,6 +12,10 @@ scope = Principal.active.joins(:members => :roles).where(:type => ['User', 'Grou
   <label>Add watchers automatically</label>
   <%= check_box_tag 'settings[add_watcher]', true, settings['add_watcher'] %>
   </p>
+  <p>
+    <label>Display only allowed statutes</label>
+    <%= check_box_tag 'settings[display_only_allowed]', true, settings['display_only_allowed'] %>
+  </p>
   <table class="list">
     <thead>
       <tr>
